@@ -58,7 +58,12 @@ $(document).ready(function () {
 
   // Save the event in local sotrage when save button is clicked
   timeblocks.on("click", ".saveBtn", function () {
+    // Accessing textarea value
     const textAreaVal = $(this).siblings("textarea").val();
+
+    // Setting task to Local Storage
+    localStorage.setItem('task', JSON.stringify(textAreaVal));
   })
+
   // Persist events between refreshes
 });
