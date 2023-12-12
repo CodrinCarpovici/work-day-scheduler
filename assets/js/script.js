@@ -55,6 +55,10 @@ $(document).ready(function () {
   };
 
   updateScheduler();
+
   // Save the event in local sotrage when save button is clicked
+  timeblocks.on("click", ".saveBtn", function () {
+    const textAreaVal = $(this).siblings("textarea").val();
+  })
   // Persist events between refreshes
 });
