@@ -73,6 +73,5 @@ $(document).ready(function () {
 
     // Setting task to Local Storage
     localStorage.setItem(`task_${hour}`, JSON.stringify(textAreaVal));
-  })
-
+  });
 });
