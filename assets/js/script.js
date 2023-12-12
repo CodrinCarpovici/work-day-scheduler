@@ -50,6 +50,13 @@ $(document).ready(function () {
         timeBlock.addClass("future");
       }
 
+      // Persist events between refreshes of a page
+      // Retrieve and set task from local storage
+      const storedTask = JSON.parse(localStorage.getItem(`task_${hour}`));
+      if (storedTask) {
+        textarea.val(storedTask);
+      }
+
       timeblocks.append(timeBlock);
     }
   };
@@ -61,9 +68,11 @@ $(document).ready(function () {
     // Accessing textarea value
     const textAreaVal = $(this).siblings("textarea").val();
 
+    // Accessing hour of current row for specificity
+    const hour = parseInt($(this).siblings(".hour").text());
+
     // Setting task to Local Storage
-    localStorage.setItem('task', JSON.stringify(textAreaVal));
+    localStorage.setItem(`task_${hour}`, JSON.stringify(textAreaVal));
   })
 
-  // Persist events between refreshes
 });
