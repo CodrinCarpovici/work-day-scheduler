@@ -20,17 +20,23 @@ $(document).ready(function () {
   // Using a for loop to generate the standard hours timeblocks
   for (let hour = 9; hour < 18; hour++) {
     // Creating a time block
-    const timeBlock = $('<div>').addClass("time-block row");
+    const timeBlock = $("<div>").addClass("time-block row");
 
     // Creating a time of day using dayjs
-    const timeOfDay = $('<div>').addClass('col-md-1 hour').text(dayjs().set("hour", hour).format("h A"));
+    const timeOfDay = $("<div>")
+      .addClass("col-md-1 hour")
+      .text(dayjs().set("hour", hour).format("h A"));
 
     // Creating a textarea
-    const textarea = $('<textarea>').addClass("col-md-10 description");
-    
-    timeBlock.
-        append(timeOfDay).
-        append(textarea);
+    const textarea = $("<textarea>").addClass("col-md-10 description");
+
+    // Creating a button
+    const saveBtn = $("<button>")
+      .addClass("col-md-1 saveBtn")
+      .html('<i class="fas fa-save"></i>');
+
+    // Appending all columns to the time block
+    timeBlock.append(timeOfDay).append(textarea).append(saveBtn);
 
     timeblocks.append(timeBlock);
   }
