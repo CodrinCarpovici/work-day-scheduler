@@ -38,9 +38,21 @@ $(document).ready(function () {
     // Appending all columns to the time block
     timeBlock.append(timeOfDay).append(textarea).append(saveBtn);
 
+    // Color-code time blocks based on current time
+    const currentTime = dayjs().hour();
+
+    // Checking current time against the time block time
+    if (currentTime > hour) {
+        timeBlock.addClass("past");
+    } else if (currentTime === hour) {
+        timeBlock.addClass("present");
+    } else {
+        timeBlock.addClass("future");
+    }
+
+
     timeblocks.append(timeBlock);
   }
-  // Color-code time blocks
   // Allow the user to enter and event when they click a timeblock
   // Save the event in local sotrage when save button is clicked
   // Persist events between refreshes
